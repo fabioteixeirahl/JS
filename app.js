@@ -35,6 +35,8 @@ function init(){
     activePlayer = 0;
     roundScore = 0;
     gamePlaying = true;
+
+    document.querySelector('.dice').style.display = 'none';
     
     document.getElementById('score-0').textContent = '0';
     document.getElementById('score-1').textContent = '0';
@@ -48,14 +50,16 @@ function init(){
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
     
-    document.querySelector('.dice').style.display = 'none';
+    
 
 
 }
 
 
 function teste(){
-    document.getElementById('score-0').textContent = '0';
-    
+    //document.getElementById('score-0').textContent = '0';
+    //document.querySelector('.player-0-panel').classList.remove('winner');
+    //document.querySelector('.player-0-panel').classList.add('active');
+ 
 
 }
