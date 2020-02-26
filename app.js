@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying, isSix=false;
+var scores, roundScore, activePlayer, gamePlaying, isSix=false, wonScore = 100;
 
 init();
 
@@ -35,6 +35,27 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
             nextPlayer();
         }
 
+    }
+});
+
+document.querySelector('.btn-hold').addEventListener('click', function() {
+    if (gamePlaying) {
+        //add current score to global score
+        scores[activePlayer] += roundScore;
+
+        document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+        
+        //check id player won the game
+        if(scores[activePlayer] >= wonScore){
+            document.querySelector('#name-' + activePlayer).textContent = 'Winner';
+            document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+            gamePlaying = false;
+        } else {
+            //next player
+            nextPlayer();
+        }
     }
 });
 
